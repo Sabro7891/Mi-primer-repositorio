@@ -1,0 +1,109 @@
+.icon{
+    width: 30px; /* tamaño ancho del icono*/
+    height: 30px; /*tamaño alto del icono*/
+    
+}
+body {
+    margin: 0; /*sin margen*/
+    font-family: sans-serif; /* tipo de fuente*/
+}
+
+header {
+    width: 100%; /*para que siempre tenga el 100% de su contenedor(body)-ancho*/
+    background: #845EC2; /*color de fondo de la barra*/
+}
+
+#btn-menu{ 
+    display: none;/*para desaparecer el cuadrado que aparece el junto al icono seleccionado*/
+}
+
+header label{ /*para darle tamaño al bloque donde va a estar ubicado el menu*/
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-right: 1px solid whitesmoke; /*sería el borde junto al icono*/
+}
+ header label:hover {
+    cursor: pointer; /*para que cuando el mouse pase por el icono casa, cambie de flecha a mano*/
+    background: rgba(0,0,0,0.3);/*para darle un color y transparencia al hover*/
+ }
+  .menu ul {
+    margin: 0; /*del margen superior de la barra menu*/
+    list-style: none; /*para quitar los item*/
+    padding: 0; /*para quitar el borde izquierdo junto al menu*/
+    display: flex; /*por defecto ubica los li en horizontal*/
+
+    /*con "justify-content" podemos cambiar la dispociocion del menu,ya sea derecha,centro o izquierda*/
+  }
+
+  .menu li {
+    text-align: left;
+    /* "flex-grow" nos permite definir la proporcion de crecimiento de cada elemento o hijo*/
+    /*con "border-right" por ejemplo podemos darle un borde si queremos separar los elementos de li con una linea*/
+  }
+
+  .menu li:hover {/*para darle un color de fondo cuando pasemos el mouse por encima del menu*/
+    background: rgba(0,0,0,0.3);
+
+  }
+  .menu li a {
+    display: block;
+    padding: 15px 20px; /*altura por ancho*/
+    color: whitesmoke; /*color de letras del menu*/
+    text-decoration: none;/*esto saca los subrayado por defecto*/
+  }
+
+  main {
+    padding: 20px;/*separacion sangria*/
+  }
+  main h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: yellowgreen;
+    text-align: center;
+  }
+
+  @media (max-width:768px) {/*esto para darle el tamaño del cual se va a achicar el menu , el de 768px es el standard para tablet*/
+    header label{
+        display: block;
+    }
+    .menu {
+        position: absolute;
+        background: #845EC2; 
+        width: 50%;
+        margin-left: -50%;/*esto para que desaparezca el menu vertical*/
+        transition: all 1s;/* esto para definir la transicion de tiempo para q aparezca el menu*/
+    }
+
+    .menu ul {
+        flex-direction: column;/*esto es para que cuando se cambie el tamaño del dispositivo, cambie la disposicion del menu, en este caso en columna*/
+    }
+
+    .menu li {
+        border-top: 1px solid whitesmoke;/* esto es a eleccion de cada uno,sirve para darle un borde al menu vertical*/
+    }
+
+    #btn-menu:checked ~ .menu {/* el checked es la seudoclase del checkbox del input en nuestro html. Es decir el de  clase "menu". Este sirve para ir editando el menu responsive*/
+        margin: 0;/*esto para que aparezca y desaparezca nuestro menu*/
+
+    }
+
+  } 
+
+.flex-container{
+  display: flex;
+  background-color: #845EC2;
+  padding: 10px;
+  border: 2px solid whitesmoke;
+}
+ .flex-container div{
+  background-color: blueviolet;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+
+ }
